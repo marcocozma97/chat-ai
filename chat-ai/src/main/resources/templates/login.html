@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="it">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Accedi - Chat AI</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body class="auth-body">
+<div class="auth-card">
+    <h1>Chat AI</h1>
+    <p class="subtitle">Accedi al tuo account</p>
+
+    <div class="alert error" th:if="${param.error}">Username o password non corretti.</div>
+    <div class="alert ok" th:if="${param.logout}">Logout effettuato con successo.</div>
+
+    <form method="post" th:action="@{/login}">
+        <label>Username</label>
+        <input type="text" name="username" required autofocus/>
+        <label>Password</label>
+        <input type="password" name="password" required/>
+        <button type="submit" class="btn-primary btn-block">Accedi</button>
+    </form>
+
+    <p class="switch">Non hai un account? <a th:href="@{/register}">Registrati</a></p>
+</div>
+</body>
+</html>

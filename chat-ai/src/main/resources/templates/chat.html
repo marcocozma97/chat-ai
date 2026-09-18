@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="it">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Chat con AI</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.6.1/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+</head>
+<body>
+<div class="layout">
+
+    <!-- Colonna sinistra: le mie conversazioni -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>Chat AI</h2>
+            <form method="post" th:action="@{/logout}">
+                <button type="submit" class="btn-logout">Esci</button>
+            </form>
+        </div>
+        <p class="utente-corrente">Ciao, <strong th:text="${username}">utente</strong></p>
+        <button id="btnNuovaChat" class="btn-primary btn-block">+ Nuova chat</button>
+        <ul id="listaChat" class="lista-chat"></ul>
+    </aside>
+
+    <!-- Colonna destra: i messaggi -->
+    <main class="chat-area">
+        <div id="titoloChat" class="chat-title">Seleziona o crea una chat</div>
+        <div id="messaggi" class="messaggi"></div>
+        <div class="composer" id="composer" style="display:none;">
+            <button id="btnSuggerisci" class="btn-suggerisci">💡 Suggerisci</button>
+            <textarea id="testoMessaggio" placeholder="Scrivi un messaggio..." rows="2"></textarea>
+            <button id="btnInvia" class="btn-primary">Invia</button>
+        </div>
+    </main>
+
+</div>
+
+<script th:inline="javascript">
+    // l'username dell'utente loggato, passato da Spring alla pagina
+    window.UTENTE_CORRENTE = /*[[${username}]]*/ 'utente';
+</script>
+<script th:src="@{/js/app.js}"></script>
+</body>
+</html>

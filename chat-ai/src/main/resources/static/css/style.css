@@ -1,0 +1,99 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', Arial, sans-serif; color: #2b2f42; }
+
+/* ===== Pagine login / registrazione ===== */
+.auth-body {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    background: #1a1f4b; padding: 20px;
+}
+.auth-card {
+    background: #fff; width: 100%; max-width: 360px; padding: 36px 32px;
+    border-radius: 14px; box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+}
+.auth-card h1 { color: #1a1f4b; font-size: 26px; text-align: center; }
+.subtitle { text-align: center; color: #8a90a6; margin: 6px 0 24px; font-size: 14px; }
+.auth-card label { display: block; font-size: 13px; color: #555; margin: 14px 0 6px; }
+.auth-card input {
+    width: 100%; padding: 11px 12px; border: 1px solid #d7dae5;
+    border-radius: 8px; font-size: 14px;
+}
+.auth-card input:focus { outline: none; border-color: #5b63d3; }
+.switch { text-align: center; margin-top: 20px; font-size: 13px; color: #777; }
+.switch a { color: #5b63d3; text-decoration: none; font-weight: 600; }
+
+.btn-primary {
+    background: #5b63d3; color: #fff; border: none; padding: 11px 18px;
+    border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer;
+}
+.btn-primary:hover { background: #4a52c0; }
+.btn-primary:disabled { opacity: .6; cursor: default; }
+.btn-block { width: 100%; margin-top: 18px; }
+
+.alert { padding: 10px 12px; border-radius: 8px; font-size: 13px; margin-bottom: 14px; }
+.alert.error { background: #fdecec; color: #c0392b; }
+.alert.ok { background: #e8f6ee; color: #1e7e45; }
+
+/* ===== Layout chat ===== */
+.layout { display: flex; height: 100vh; }
+
+.sidebar {
+    width: 280px; background: #1a1f4b; color: #fff;
+    display: flex; flex-direction: column; padding: 18px;
+}
+.sidebar-header { display: flex; justify-content: space-between; align-items: center; }
+.sidebar-header h2 { font-size: 20px; }
+.utente-corrente { color: #a9b0d6; font-size: 13px; margin: 10px 0 4px; }
+.btn-logout {
+    background: transparent; border: 1px solid #4a5080; color: #c9cdec;
+    padding: 6px 12px; border-radius: 7px; cursor: pointer; font-size: 12px;
+}
+.btn-logout:hover { background: #2a3060; }
+
+.lista-chat { list-style: none; margin-top: 14px; overflow-y: auto; flex: 1; }
+.chat-item {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 11px 12px; border-radius: 8px; cursor: pointer; margin-bottom: 4px;
+    color: #c9cdec; font-size: 14px;
+}
+.chat-item:hover { background: #2a3060; }
+.chat-item.attiva { background: #5b63d3; color: #fff; }
+.chat-item span { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.btn-elimina {
+    background: none; border: none; cursor: pointer; font-size: 14px;
+    opacity: .6; margin-left: 8px;
+}
+.btn-elimina:hover { opacity: 1; }
+
+.chat-area { flex: 1; display: flex; flex-direction: column; background: #f4f5f7; }
+.chat-title {
+    padding: 18px 24px; background: #fff; border-bottom: 1px solid #e4e6ef;
+    font-weight: 600; color: #1a1f4b;
+}
+.messaggi { flex: 1; overflow-y: auto; padding: 24px; display: flex; flex-direction: column; gap: 12px; }
+.messaggio {
+    max-width: 68%; padding: 12px 16px; border-radius: 14px; font-size: 14px;
+    line-height: 20px; white-space: pre-wrap; word-wrap: break-word;
+}
+.messaggio.mio {
+    align-self: flex-end; background: #5b63d3; color: #fff; border-bottom-right-radius: 4px;
+}
+.messaggio.altro {
+    align-self: flex-start; background: #fff; color: #2b2f42;
+    border: 1px solid #e4e6ef; border-bottom-left-radius: 4px;
+}
+
+.composer {
+    display: flex; align-items: flex-end; gap: 10px;
+    padding: 16px 24px; background: #fff; border-top: 1px solid #e4e6ef;
+}
+.composer textarea {
+    flex: 1; resize: none; padding: 11px 14px; border: 1px solid #d7dae5;
+    border-radius: 10px; font-size: 14px; font-family: inherit;
+}
+.composer textarea:focus { outline: none; border-color: #5b63d3; }
+.btn-suggerisci {
+    background: #fff4d6; border: 1px solid #f0d98a; color: #8a6d1f;
+    padding: 10px 14px; border-radius: 10px; cursor: pointer; font-size: 13px; white-space: nowrap;
+}
+.btn-suggerisci:hover { background: #ffeab8; }
+.btn-suggerisci:disabled { opacity: .6; cursor: default; }
